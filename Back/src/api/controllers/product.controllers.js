@@ -1,4 +1,3 @@
-import connection from "../database/db";
 import productModels from "../models/product.models.js"; //Se exportan todas las funciones gracias al export default
 
 const getAllProducts = async (req, res) =>
@@ -117,4 +116,13 @@ const removeProduct = async(req, res) =>
         res.status(500).json({message : "Error interno al eliminar un producto"})
     }
 
+}
+
+export 
+{
+    getAllProducts,
+    getProductById,
+    createProduct,
+    modifyProduct,
+    removeProduct
 }
