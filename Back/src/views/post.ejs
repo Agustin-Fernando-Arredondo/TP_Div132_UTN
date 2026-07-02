@@ -1,0 +1,50 @@
+<%- include("partials/head.ejs") %>
+    <%- include("partials/header.ejs") %>
+
+        <main>
+
+            <section>
+
+                <h2>Crear producto</h2>
+
+                <form id="postProduct-form">
+
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="text" name="imagen" placeholder="Imagen" required>
+
+                    <select name="categoria">
+                        <option value="food">Comida</option>
+                        <option value="drink">Bebida</option>
+                    </select>
+
+                    <input type="number" name="precio" placeholder="Precio" required>
+
+                    <button>Crear producto</button>
+                </form>
+
+            </section>
+
+            <hr>
+
+            <section>
+
+                <h2>Crear usuario admin</h2>
+
+                <form id="postUser-form">
+
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+
+                    <button>Crear usuario</button>
+                </form>
+
+            </section>
+
+            <div id="contenedor-productos"></div>
+
+        </main>
+
+        <script src="/js/post.js"></script>
+
+        <%- include("partials/footer.ejs") %>

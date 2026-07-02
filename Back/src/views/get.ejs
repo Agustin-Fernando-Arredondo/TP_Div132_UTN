@@ -1,0 +1,21 @@
+<%- include("partials/head.ejs") %>
+    <%- include("partials/header.ejs") %>
+
+        <main>
+
+            <h2>
+                <%= about %>
+            </h2>
+
+            <form id="getProduct-form">
+                <input type="number" name="idProd" placeholder="ID del producto">
+                <button>Buscar</button>
+            </form>
+
+            <div id="contenedor-productos"></div>
+
+        </main>
+
+        <script src="/js/get.js"></script>
+
+        <%- include("partials/footer.ejs") %>

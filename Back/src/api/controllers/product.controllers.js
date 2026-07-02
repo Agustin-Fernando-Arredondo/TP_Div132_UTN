@@ -21,7 +21,7 @@ const getAllProducts = async (req, res) =>
     {
         console.log("Error obteniendo los productos: ", error);
 
-        res.status(500).json({message : "Error interno al obtener los productos"});
+        return res.status(500).json({message : "Error interno al obtener los productos"});
     }
 }
 
@@ -43,7 +43,7 @@ const getProductById = async (req, res) =>
     {
         console.log(`Error obteniendo el producto con id ${req.id}`);
 
-        res.status(500).json({message: `Error interno al obtener el producto con el id ${req.id}`});
+        return res.status(500).json({message: `Error interno al obtener el producto con el id ${req.id}`});
     }
 }
 
@@ -62,7 +62,7 @@ const createProduct = async (req, res) =>
     {
         console.log("Error creando el producto: ", error);
 
-        res.status(500).json({message : "Error interno al crear un producto"});
+        return res.status(500).json({message : "Error interno al crear un producto"});
     }
 }
 
@@ -92,7 +92,7 @@ const modifyProduct = async (req, res) =>
     {
         console.log("Error al modificar un producto: ", error);
 
-        res.status(500).json({message: "Error interno al modificar un producto"});
+        return res.status(500).json({message: "Error interno al modificar un producto"});
     }
 }
 
@@ -113,12 +113,12 @@ const removeProduct = async(req, res) =>
     {
         console.log(`Error al eliminar el producto de id ${req.id}: `, error);
 
-        res.status(500).json({message : "Error interno al eliminar un producto"})
+        return res.status(500).json({message : "Error interno al eliminar un producto"})
     }
 
 }
 
-export 
+export default
 {
     getAllProducts,
     getProductById,

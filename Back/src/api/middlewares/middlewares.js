@@ -1,3 +1,11 @@
+const loggerURL = (req, res, next) => {
+    let fecha = new Date();
+    console.log(`[${fecha.toLocaleDateString()} ${fecha.toLocaleTimeString()}] ${req.method} ${req.url}`);
+
+    next();
+};
+
+
 const validateId = (req, res, next) =>
 {
     const id = Number(req.params.id);
@@ -32,9 +40,9 @@ const validateProduct = (req, res, next) =>
 
     const precioNumero = Number(precio);
 
-    if (typeof precioNumero !== "number" || precioNumero <= 0)
+    if (isNaN(precioNumero) || precioNumero <= 0)
     {
-        errores.push("El precio debe ser un numero mayor a 0");
+        errores.push("Precio inválido");
     }
 
     if (!categoriasValidas.includes(categoria))
@@ -52,9 +60,6 @@ const validateProduct = (req, res, next) =>
 
 const validateIsAdmin = (req, res, next) =>
 {
-    if (!req.session.user) {
-        return res.status(401).send("No autenticado");
-    }
 
     if (!req.session.user.esAdmin) {
         return res.status(403).send("No autorizado");
@@ -63,9 +68,21 @@ const validateIsAdmin = (req, res, next) =>
     next();
 }
 
-export
+const requireLogin = (req, res, next) =>
+{
+    if (!req.session.user) 
+    {
+        return res.redirect("/login");
+    }
+
+    next();
+}
+
+
+export default
 {
     validateId,
     validateProduct,
-    validateIsAdmin
+    validateIsAdmin,
+    requireLogin
 }

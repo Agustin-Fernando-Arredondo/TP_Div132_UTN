@@ -1,0 +1,32 @@
+<%- include("partials/head.ejs") %>
+
+
+        <main>
+
+            <h2>
+                <%= about %>
+            </h2>
+
+            <form id="loginForm" class="form-alta" action="/login" method="POST">
+
+                <label for="emailUser">Email</label>
+                <input type="email" name="email" id="emailUser" required>
+
+                <label for="passwordUser">Password</label>
+                <input type="password" name="password" id="passwordUser" required>
+
+                <div>
+                    <input type="submit" value="Login">
+                </div>
+
+            </form>
+
+            <% if (typeof error !=="undefined" ) { %>
+                <p class="mensaje mensaje-error">
+                    <%= error %>
+                </p>
+                <% } %>
+
+        </main>
+
+        <%- include("partials/footer.ejs") %>
