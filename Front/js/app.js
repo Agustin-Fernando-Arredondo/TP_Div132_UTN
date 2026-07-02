@@ -14,7 +14,7 @@ async function cargarProductos()
         renderProductos(productosGlobal);
     } 
     
-    catch (error) 
+    catch (error)   
     {
         console.error("Error cargando productos:", error);
     }

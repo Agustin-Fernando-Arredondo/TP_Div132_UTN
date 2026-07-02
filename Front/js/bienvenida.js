@@ -6,7 +6,8 @@ btn.addEventListener("click", () =>
 
     if (nombre.trim() === "") 
     {
-        alert("Ingresá tu nombre");
+        alert("Ingresá un nombre para entrar...");
+        window.location.href = "index.html";
         return;
     }
 
