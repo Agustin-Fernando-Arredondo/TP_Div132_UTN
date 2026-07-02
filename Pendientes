@@ -1,0 +1,8 @@
+Falta del front:
+-Falta opción para descargar ticket con jsPDF
+-Falta sacar los botones para filtrar porque no sirven en este momento
+-Hacer que me redirija a index.html si no puse anteriormente un nombre como cliente (el que se muestra en el ticket)
+
+Back: 
+-Agregar en admin (/login) un botón que me redirija a la vista de un cliente
+-Arreglar en admin un error que salta al modificar un producto
