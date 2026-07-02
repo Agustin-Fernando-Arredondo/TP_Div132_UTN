@@ -28,7 +28,7 @@ const processLogininfo = async (req, res) =>
 
         const usuario = usuarios[0];
 
-        req.session.user = { id: usuario.id, nombre: usuario.nombre, email: usuario.email, isAdmin: usuario.es_admin };
+        req.session.user = { id: usuario.id, nombre: usuario.nombre, email: usuario.email, esAdmin: usuario.es_admin };
 
         return res.redirect("/dashboard/index");
     }

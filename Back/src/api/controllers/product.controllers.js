@@ -55,7 +55,7 @@ const createProduct = async (req, res) =>
 
         const [rows] = await productModels.insertNewProduct(nombre, imagen, categoria, precio);
         
-        res.status(201).json({message : "Producto creado con éxito", productId : rows.insertId}); //insertId es una de las devoluciones que nos da mysql
+        res.status(201).json({message : "Producto creado con éxito", productId : rows.id});
     }
 
     catch (error)
@@ -80,7 +80,7 @@ const modifyProduct = async (req, res) =>
 
         const [rows] = await productModels.updateProduct(id, nombre, imagen, categoria, precio);
 
-        if (rows.affectedRows === 0)
+        if (rows[0] === 0) //Funciona igual a mysql
         {
             return res.status(404).json({message: `No se encontró ningun producto de id ${id} o los campos coinciden`})
         }
@@ -102,7 +102,7 @@ const removeProduct = async(req, res) =>
     {
         const [rows] = await productModels.deleteProduct(req.id);
 
-        if (rows.affectedRows === 0)
+        if (rows === 0)
         {
             return res.status(404).json({ message: `No se encontró el producto del id ${req.id}`})
         }

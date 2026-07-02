@@ -1,17 +1,18 @@
-import mysql2 from "mysql2/promise" // Modo promesa para async/await
+import {Sequelize} from "sequelize";
 
-import environments from "../config/environments.js"
+import environments from "../config/environments.js";
 
 const {database} = environments;
 
 //Pool de Conexiones
-const connection = mysql2.createPool(
+const sequelize = new Sequelize(
+    database.name,
+    database.user,
+    database.password,
     {
         host : database.host,
-        database : database.name,
-        user : database.user,
-        password : database.password
+        dialect : "mysql",
     }
-);
+    );
 
-export default connection;
+export default sequelize;
