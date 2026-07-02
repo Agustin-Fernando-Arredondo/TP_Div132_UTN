@@ -73,7 +73,7 @@ const modifyProduct = async (req, res) =>
         const id = req.id;
         const { nombre, imagen, categoria, precio} = req.body;
 
-        if(!nombre || !imagen || !categoria || !precio) //PASAR ESTO A UN MIDDLEWARE
+        if(!nombre || !imagen || !categoria || !precio) 
         {
             return res.status(400).json({message : "Todos los campos del formulario deben estar llenos"});
         }

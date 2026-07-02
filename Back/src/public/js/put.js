@@ -79,6 +79,8 @@ formulario.addEventListener("submit", async (evento) =>
                 body: JSON.stringify(body)
             });
 
+            console.log(response);
+
             if (!response.ok) 
             {
                 mostrarError("Error al actualizar");

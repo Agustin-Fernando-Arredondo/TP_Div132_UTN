@@ -1,7 +1,8 @@
 const formulario = document.getElementById("getProduct-form");
 const contenedorProductos = document.getElementById("contenedor-productos");
 
-formulario.addEventListener("submit", async (evento) => {
+formulario.addEventListener("submit", async (evento) => 
+{
     evento.preventDefault();
 
     const id = evento.target.idProd.value;
@@ -29,8 +30,8 @@ formulario.addEventListener("submit", async (evento) => {
             </div>
         `;
 
-        document.getElementById("btn-delete").addEventListener("click", async () => {
-
+        document.getElementById("btn-delete").addEventListener("click", async () => 
+        {
             const response = await fetch(`/api/products/${id}`,
             {
                 method: "DELETE"
@@ -52,7 +53,8 @@ formulario.addEventListener("submit", async (evento) => {
     }
 });
 
-function mostrarError(mensaje) {
+function mostrarError(mensaje) 
+{
     contenedorProductos.innerHTML = `
         <p class="mensaje mensaje-error">${mensaje}</p>
     `;
