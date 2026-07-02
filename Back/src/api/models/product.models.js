@@ -58,7 +58,7 @@ const selectAllProducts = async () =>
 {
     const rows = await Producto.findAll(
     {
-        attributes : ["id", "nombre", "precio", "imagen"]
+        attributes : ["id", "nombre", "precio", "imagen", "activo"]
     }
     );
 
@@ -70,7 +70,7 @@ const selectProductById = async (id) =>
     const rows = await Producto.findOne(
     {
         where : { id },
-        attributes : ["id", "nombre", "precio", "imagen"]
+        attributes : ["id", "nombre", "precio", "imagen", "activo"]
     }
     );
 
@@ -110,11 +110,13 @@ const updateProduct = async (id, nombre, imagen, categoria, precio) =>
 
 const deleteProduct = async (id) => 
 {
-    const rows = await Producto.destroy(
-    {
-        where: { id }
-    }
-    );
+    const rows = await Producto.update(
+        {
+            activo: false
+        },
+        {
+            where: { id }
+        });
 
     return [rows, null];
 };

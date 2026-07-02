@@ -1,0 +1,104 @@
+const contenedor = document.getElementById("carrito");
+
+const totalSpan = document.getElementById("total");
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function renderCarrito() 
+{
+    contenedor.innerHTML = "";
+    let total = 0;
+
+    carrito.forEach(p => 
+    {
+        total += p.precio * p.cantidad;
+
+        contenedor.innerHTML += `
+            <div class="card">
+                <h3>${p.nombre}</h3>
+                <p>$${p.precio}</p>
+
+                <button onclick="restar(${p.id})">-</button>
+                ${p.cantidad}
+                <button onclick="sumar(${p.id})">+</button>
+
+                <button onclick="eliminar(${p.id})">Eliminar</button>
+            </div>
+        `;
+    });
+
+    totalSpan.textContent = total;
+}
+
+function sumar(id) 
+{
+    const prod = carrito.find(producto => producto.id === id);
+    prod.cantidad++;
+    guardar();
+}
+
+function restar(id) {
+    const prod = carrito.find(producto => producto.id === id);
+
+    if (prod.cantidad > 1) 
+    {
+        prod.cantidad--;
+    } 
+    
+    else
+    {
+        eliminar(id);
+        return;
+    }
+
+    guardar();
+}
+
+function eliminar(id)
+{
+    carrito = carrito.filter(producto => producto.id !== id);
+    guardar();
+}
+
+function guardar() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    renderCarrito();
+}
+
+async function confirmarCompra() {
+    if (carrito.length === 0) {
+        alert("Carrito vacío");
+        return;
+    }
+
+    const confirmar = confirm("¿Confirmar compra?");
+
+    if (!confirmar) return;
+
+    const nombre = localStorage.getItem("nombre");
+
+    const venta = 
+        {
+        cliente: nombre,
+        productos: carrito.map(producto => ({
+            id: producto.id,
+            cantidad: producto.cantidad
+        }))
+    };
+
+    try {
+        await fetch("http://localhost:3000/api/ventas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(venta)
+        });
+
+        window.location.href = "ticket.html";
+    } catch (error) {
+        console.error("Error en compra:", error);
+    }
+}
+
+renderCarrito();

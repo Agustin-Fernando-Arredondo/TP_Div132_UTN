@@ -14,7 +14,7 @@ formularioProducto.addEventListener("submit", async (evento) =>
 
     try
     {
-        const response = await fetch("/products", 
+        const response = await fetch("/api/products", 
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -29,13 +29,14 @@ formularioProducto.addEventListener("submit", async (evento) =>
             return;
         }
 
-        mostrarExito(`Producto creado: ${data.nombre}`);
+        mostrarExito(data.message);
         evento.target.reset();
 
     }
 
     catch (error)
     {
+        console.log(body);
         contenedorProductos.innerHTML = `<p>Error en la petición</p>`;
     }
 });
@@ -48,7 +49,7 @@ formularioUsuario.addEventListener("submit", async (evento) =>
     const body = Object.fromEntries(formData);
 
     try {
-        const response = await fetch("/users", 
+        const response = await fetch("/api/users", 
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },

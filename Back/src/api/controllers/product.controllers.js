@@ -106,7 +106,7 @@ const removeProduct = async(req, res) =>
         {
             return res.status(404).json({ message: `No se encontró el producto del id ${req.id}`})
         }
-        res.status(200).json({ message:`Producto de id ${req.id} eliminado exitosamente`});
+        res.status(200).json({ message:`Producto desativado correctamente`});
     }
 
     catch(error)

@@ -9,7 +9,7 @@ formulario.addEventListener("submit", async (evento) => {
     try 
     {
 
-        const response = await fetch(`/products/${id}`);
+        const response = await fetch(`/api/products/${id}`);
 
         const data = await response.json();
 
@@ -21,10 +21,10 @@ formulario.addEventListener("submit", async (evento) => {
 
         contenedorProductos.innerHTML = `
             <div class="card-producto">
-                <img src="${data.imagen}">
-                <h4>${data.nombre}</h4>
-                <p>ID: ${data.id}</p>
-                <p>$${data.precio}</p>
+                <img src="${data.payload.imagen}">
+                <h4>${data.payload.nombre}</h4>
+                <p>ID: ${data.payload.id}</p>
+                <p>$${data.payload.precio}</p>
             </div>
         `;
 

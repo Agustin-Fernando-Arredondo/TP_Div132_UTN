@@ -10,7 +10,7 @@ formulario.addEventListener("submit", async (evento) =>
 
     try
     {
-        const response = await fetch(`/products/${id}`);
+        const response = await fetch(`/api/products/${id}`);
 
         const producto = await response.json();
 
@@ -22,10 +22,10 @@ formulario.addEventListener("submit", async (evento) =>
 
         contenedorProductos.innerHTML = `
             <div class="card-producto">
-                <img src="${producto.imagen}">
-                <h4>${producto.nombre}</h4>
-                <p>ID: ${producto.id}</p>
-                <p>$${producto.precio}</p>
+                <img src="${producto.payload.imagen}">
+                <h4>${producto.payload.nombre}</h4>
+                <p>ID: ${producto.payload.id}</p>
+                <p>$${producto.payload.precio}</p>
             </div>
         `;
 
@@ -33,27 +33,27 @@ formulario.addEventListener("submit", async (evento) =>
         <hr>
         <form id="updateProduct-form" class="form-alta">
 
-            <input type="hidden" name="id" value="${producto.id}">
+            <input type="hidden" name="id" value="${producto.payload.id}">
 
             <label>Nombre</label>
-            <input type="text" name="nombre" value="${producto.nombre}" required>
+            <input type="text" name="nombre" value="${producto.payload.nombre}" required>
 
             <label>Imagen</label>
-            <input type="text" name="imagen" value="${producto.imagen}" required>
+            <input type="text" name="imagen" value="${producto.payload.imagen}" required>
 
             <label>Categoria</label>
             <select name="categoria" required>
-                <option value="food" ${producto.categoria === "food" ? "selected" : ""}>comida</option>
-                <option value="drink" ${producto.categoria === "drink" ? "selected" : ""}>bebida</option>
+                <option value="categoria1" ${producto.payload.categoria === "categoria1" ? "selected" : ""}>comida</option>
+                <option value="categoria2" ${producto.payload.categoria === "categoria2" ? "selected" : ""}>bebida</option>
             </select>
 
             <label>Precio</label>
-            <input type="number" name="precio" value="${producto.precio}" required>
+            <input type="number" name="precio" value="${producto.payload.precio}" required>
 
             <label>Activo</label>
             <select name="activo">
-                <option value="1" ${producto.activo == 1 ? "selected" : ""}>activo</option>
-                <option value="0" ${producto.activo == 0 ? "selected" : ""}>inactivo</option>
+                <option value="1" ${producto.payload.activo == 1 ? "selected" : ""}>activo</option>
+                <option value="0" ${producto.payload.activo == 0 ? "selected" : ""}>inactivo</option>
             </select>
 
             <div>
@@ -72,7 +72,7 @@ formulario.addEventListener("submit", async (evento) =>
             const formData = new FormData(evento.target);
             const body = Object.fromEntries(formData);
 
-            const response = await fetch(`/products/${id}`, 
+            const response = await fetch(`/api/products/${id}`, 
             {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
