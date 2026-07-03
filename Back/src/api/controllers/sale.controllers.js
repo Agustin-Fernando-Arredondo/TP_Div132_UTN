@@ -6,8 +6,6 @@ const createSale = async (req, res) =>
     {
         const {nombre_usuario, precio_total, productos} = req.body;
 
-        console.log(req.body);
-
         if (!nombre_usuario || !precio_total || !productos || productos.length === 0) 
         {
             return res.status(400).json({message: "Faltan datos para registrar la venta"});

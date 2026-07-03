@@ -5,27 +5,39 @@
     <meta charset="UTF-8">
     <title>Carrito</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/logo.png">
 </head>
 
 <body>
 
     <header>
-        <h1>Autoservicio</h1>
-        <p>Agustín Arredondo - Mauro Sommacal</p>
+        <div class="header-izq">
+            <p>Agustín Arredondo - Mauro Sommacal</p>
+        </div>
 
-        <nav>
-            <a href="productos.html">Productos</a>
-        </nav>
+        <div class="header-centro">
+            <div class="logo">
+                <img src="assets/logo.png" alt="NextLevel Store">
+                <h1>NextLevel Store</h1>
+            </div>
+    
+            <nav>
+                <a href="productos.html">Productos</a>
+            </nav>
+        </div>
+        <div class="header-der"></div>
     </header>
 
-    <main>
-        <h2>Carrito</h2>
+    <main class="main-carrito">
+        <h2 >Carrito</h2>
 
         <div id="carrito"></div>
 
-        <h3>Total: $<span id="total">0</span></h3>
-
-        <button id="btn-finalizar">Finalizar compra</button>
+        <div id="finalizar-compra">
+            <h3>Total: $<span id="total">0</span></h3>
+    
+            <button id="btn-finalizar">Finalizar compra</button>
+        </div>
     </main>
 
     <script src="js/auth.js"></script>

@@ -3,22 +3,32 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Autoservicio</title>
+    <title>NextLevel Store</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/logo.png">
     <script>localStorage.clear();</script>
 </head>
 
 <body>
 
     <header>
-        <h1>Autoservicio</h1>
-        <p>Agustín Arredondo - Mauro Sommacal</p>
+        <div class="header-izq">
+            <p>Agustín Arredondo - Mauro Sommacal</p>
+        </div>
+
+        <div class="header-centro">
+            <div class="logo">
+                <img src="assets/logo.png" alt="NextLevel Store">
+                <h1>NextLevel Store</h1>
+            </div>
+        </div>
+        <div class="header-der"></div>
     </header>
 
-    <main>
-        <h2>Bienvenido</h2>
+    <main class="main-bienvenida">
+        <h1>Bienvenido, ingrese su nombre</h1>
 
-        <input type="text" id="nombre" placeholder="Ingresá tu nombre" autocomplete="off">
+        <input type="text" id="nombre" placeholder="Ingresá tu nombre" autocomplete="off" class="input-bienvenida">
         <button id="btnContinuar">Continuar</button>
     </main>
 

@@ -9,15 +9,15 @@
 
                 <form id="postProduct-form">
 
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="text" name="imagen" placeholder="Imagen" required>
+                    <input type="text" name="nombre" placeholder="Nombre" required autocomplete="off">
+                    <input type="text" name="imagen" placeholder="Imagen" required autocomplete="off">
 
                     <select name="categoria">
-                        <option value="categoria1">Categoria 1</option>
-                        <option value="categoria2">Categoria 2</option>
+                        <option value="Consola">Consola</option>
+                        <option value="Accesorio">Accesorio</option>
                     </select>
 
-                    <input type="number" name="precio" placeholder="Precio" required>
+                    <input type="number" name="precio" placeholder="Precio" required autocomplete="off">
 
                     <button>Crear producto</button>
                 </form>
@@ -30,7 +30,7 @@
 
                 <h2>Crear usuario admin</h2>
 
-                <form id="postUser-form">
+                <form id="postUser-form" autocomplete="off">
 
                     <input type="text" name="nombre" placeholder="Nombre" required>
                     <input type="email" name="email" placeholder="Email" required>

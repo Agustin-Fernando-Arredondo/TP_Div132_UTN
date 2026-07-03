@@ -1,11 +1,3 @@
-const loggerURL = (req, res, next) => {
-    let fecha = new Date();
-    console.log(`[${fecha.toLocaleDateString()} ${fecha.toLocaleTimeString()}] ${req.method} ${req.url}`);
-
-    next();
-};
-
-
 const validateId = (req, res, next) =>
 {
     const id = Number(req.params.id);
@@ -21,7 +13,7 @@ const validateId = (req, res, next) =>
 }
 
 
-const categoriasValidas = ["categoria1", "categoria2"] //Hardcodeamos las categorías sabiendo que solo hay 2
+const categoriasValidas = ["Consola", "Accesorio"] //Hardcodeamos las categorías sabiendo que solo hay 2
 const validateProduct = (req, res, next) =>
 {
     const {nombre, imagen, categoria, precio} = req.body;

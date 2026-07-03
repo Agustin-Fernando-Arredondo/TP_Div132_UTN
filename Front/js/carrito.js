@@ -10,20 +10,21 @@ function renderCarrito()
     contenedor.innerHTML = "";
     let total = 0;
 
-    carrito.forEach(p => 
+    carrito.forEach(producto => 
     {
-        total += p.precio * p.cantidad;
+        total += producto.precio * producto.cantidad;
 
         contenedor.innerHTML += `
             <div class="card">
-                <h3>${p.nombre}</h3>
-                <p>$${p.precio}</p>
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <h3>${producto.nombre}</h3>
+                <p>$${producto.precio}</p>
 
-                <button onclick="restar(${p.id})">-</button>
-                ${p.cantidad}
-                <button onclick="sumar(${p.id})">+</button>
+                <button onclick="restar(${producto.id})">-</button>
+                ${producto.cantidad}
+                <button onclick="sumar(${producto.id})">+</button>
 
-                <button onclick="eliminar(${p.id})">Eliminar</button>
+                <button onclick="eliminar(${producto.id})">Eliminar</button>
             </div>
         `;
     });

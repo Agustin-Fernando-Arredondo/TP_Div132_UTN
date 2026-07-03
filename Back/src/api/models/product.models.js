@@ -28,7 +28,7 @@ const Producto = sequelize.define("Product",
 
         categoria :
         {
-            type: DataTypes.ENUM("categoria1", "categoria2"),
+            type: DataTypes.ENUM("Consola", "Accesorio"),
             allowNull: false
         },
 
@@ -58,7 +58,7 @@ const selectAllProducts = async () =>
 {
     const rows = await Producto.findAll(
     {
-        attributes : ["id", "nombre", "precio", "imagen", "activo"]
+        attributes : ["id", "nombre", "precio", "imagen", "activo", "categoria"]
     }
     );
 
@@ -70,7 +70,7 @@ const selectProductById = async (id) =>
     const rows = await Producto.findOne(
     {
         where : { id },
-        attributes : ["id", "nombre", "precio", "imagen", "activo"]
+        attributes : ["id", "nombre", "precio", "imagen", "activo", "categoria"]
     }
     );
 

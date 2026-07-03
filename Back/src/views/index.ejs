@@ -16,9 +16,27 @@
                         <h4>
                             <%= producto.nombre %>
                         </h4>
-                        <p>ID: <%= producto.id %>
+                        <p>
+                            ID: <%= producto.id %>
                         </p>
-                        <p>$<%= producto.precio %>
+                        <p>
+                            Categoría: <%= producto.categoria %>
+                        </p>
+                        <p>
+                            Estado:
+                            <% if (producto.activo==1)
+                            { %>
+                                Activo
+                            <% } 
+
+                            else 
+                            { %>
+                            Inactivo
+                            <% }
+                             %>
+                        </p>
+                        <p>
+                            $<%= producto.precio %>
                         </p>
                     </div>
 

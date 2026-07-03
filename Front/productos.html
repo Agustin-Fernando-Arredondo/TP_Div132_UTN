@@ -4,33 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Productos</title>
+    <link rel="icon" href="assets/logo.png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
     <header>
-        <h1>Autoservicio</h1>
-        <p>Agustín Arredondo - Mauro Sommacal</p>
-        <hr>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="carrito.html">Carrito</a>
-            <a href="http://localhost:3000/login">Admin</a>
-        </nav>
-        <hr>
+        <div class="header-izq">
+            <p>Agustín Arredondo - Mauro Sommacal</p>
+        </div>
+        
+        <div class="header-centro">
+            <div class="logo">
+                <img src="assets/logo.png" alt="NextLevel Store">
+                <h1>NextLevel Store</h1>
+            </div>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="carrito.html">Carrito</a>
+                <a href="http://localhost:3000/login">Admin</a>
+            </nav>
+        </div>
+        <div class="header-der"></div>
     </header>
 
     <main>
         <div id="saludo"></div>
-        <h2>Productos</h2>
-
-        <div>
-            <!-- <button onclick="filtrar('tipo1')">Tipo 1</button> -->
-            <!-- <button onclick="filtrar('tipo2')">Tipo 2</button> -->
-            <label for="">Tipo 1</label>
-            <label for="">Tipo 2</label>
-        </div>
+        <h2 id="texto-productos">Productos</h2>
 
         <div id="productos"></div>
     </main>

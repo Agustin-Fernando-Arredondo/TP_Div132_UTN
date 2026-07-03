@@ -1,0 +1,215 @@
+:root {
+    --color-principal: #5B4B8A;
+    --color-fondo: #18181b;
+    --color-superficie: #27272a;
+    --color-borde: #3f3f46;
+    --color-texto: #f4f4f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    background: var(--color-superficie);
+    border-bottom: 1px solid var(--color-borde);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.header-izq {
+    width: 280px;
+    font-size: 1rem;
+}
+
+.header-centro {
+    display: flex;
+    flex : 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-der
+{
+    width: 275px;
+}
+
+
+nav {
+    display:flex;
+    gap: 300px;
+}
+
+nav a:hover {
+    color: #8a7bd1;
+}
+
+.main-bienvenida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-bienvenida h1
+{
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.input-bienvenida {
+    height: 30px;
+    width: 350px;
+}
+
+button {
+    background: var(--color-principal);
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+}
+
+button:hover {
+    background: #8a7bd1;
+}
+
+#saludo {
+    text-align: center;
+
+    font-size: 2.5rem;
+
+    margin-bottom: 40px;
+
+    margin-top: 30px;
+}
+
+#productos {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 30px;
+}
+
+.card {
+    width: 240px;
+
+    background: var(--color-superficie);
+
+    border-radius: 12px;
+
+    border: 1px solid var(--color-borde);
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin : 20px;
+}
+
+
+.card img {
+    width: 150px;
+
+    height: 150px;
+
+    object-fit: contain;
+}
+
+.card h3 {
+    text-align: center;
+}
+
+#carrito {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.ticket {
+    width: 600px;
+
+    margin: auto;
+
+    background: var(--color-superficie);
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    border: 1px solid var(--color-borde);
+
+    margin-top: 100px;
+}
+
+.logo {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 75px;
+    height: 75px;
+}
+
+.logo h1 {
+    font-size: 1.7rem;
+    margin: 0;
+}
+
+.main-carrito h2
+{
+    margin: 30px;
+    text-align: center;
+}
+
+#finalizar-compra
+{
+    text-align: center;
+    margin: 30px;
+}
+
+#texto-productos
+{
+    margin: 20px;
+}

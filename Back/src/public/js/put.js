@@ -43,8 +43,8 @@ formulario.addEventListener("submit", async (evento) =>
 
             <label>Categoria</label>
             <select name="categoria" required>
-                <option value="categoria1" ${producto.payload.categoria === "categoria1" ? "selected" : ""}>comida</option>
-                <option value="categoria2" ${producto.payload.categoria === "categoria2" ? "selected" : ""}>bebida</option>
+                <option value="Consola" ${producto.payload.categoria === "Consola" ? "selected" : ""}>Consola</option>
+                <option value="Accesorio" ${producto.payload.categoria === "Accesorio" ? "selected" : ""}>Accesorio</option>
             </select>
 
             <label>Precio</label>
@@ -72,9 +72,6 @@ formulario.addEventListener("submit", async (evento) =>
             const formData = new FormData(evento.target);
             const body = Object.fromEntries(formData);
 
-            console.log("🟢 FRONT - BODY QUE SE ENVÍA:", body);
-            console.log("🟢 FRONT - ID:", id);
-
             const response = await fetch(`/api/products/${id}`, 
             {
                 method: "PUT",
@@ -82,10 +79,7 @@ formulario.addEventListener("submit", async (evento) =>
                 body: JSON.stringify(body)
             });
 
-            console.log("🟡 FRONT - STATUS:", response.status);
-
             const data = await response.json().catch(() => null);
-            console.log("🟡 FRONT - RESPUESTA BACK:", data);
 
 
             if (!response.ok) 

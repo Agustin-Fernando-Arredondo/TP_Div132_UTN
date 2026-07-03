@@ -40,7 +40,7 @@ function imprimirTicket()
     let y = 20;
 
     doc.setFontSize(22);
-    doc.text("Ticket de compra", 20, y);
+    doc.text("Ticket de compra - NextLevel STORE", 20, y);
 
     y += 10;
 

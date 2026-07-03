@@ -7,7 +7,7 @@ const indexView = async (req, res) =>
     try
     {
         const [productos] = await productModels.selectAllProducts()
-    
+        
         res.render("index", 
         {
             title : "Dashboard",

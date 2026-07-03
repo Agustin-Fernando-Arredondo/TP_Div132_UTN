@@ -1,43 +1,35 @@
 <header>
-    <div class="logo">
-        <a href="/dashboard/index">
-            <img src="/assets/img/logo.png" alt="logo">
-        </a>
+
+    <div class="header-izq">
+        <div class="logo">
+            <a href="/dashboard/index">
+                <img src="/assets/img/logo.png" alt="logo" class="logo">
+            </a>
         </div>
 
-    <ul class="enlaces">
-        <li class="enlace">
-            <a href="/dashboard/index">
-                <span>VER</span>
-            </a>
-        </li>
+        <div class="alumnos">
+            <p>Agustín Arredondo - Mauro Sommacal</p>
+        </div>
+    </div>
 
-        <li class="enlace">
-            <a href="/dashboard/consultar">
-                <span>CONSULTAR</span>
-            </a>
-        </li>
+    <div class="header-centro">
+        <ul class="enlaces">
+            <li><a href="/dashboard/index">VER</a></li>
+            <li><a href="/dashboard/consultar">CONSULTAR</a></li>
+            <li><a href="/dashboard/crear">CREAR</a></li>
+            <li><a href="/dashboard/modificar">MODIFICAR</a></li>
+            <li><a href="/dashboard/eliminar">ELIMINAR</a></li>
+        </ul>
+    </div>
 
-        <li class="enlace">
-            <a href="/dashboard/crear">
-                <span>CREAR</span>
-            </a>
-        </li>
+    <div class="header-der">
 
-        <li class="enlace">
-            <a href="/dashboard/modificar">
-                <span>MODIFICAR</span>
-            </a>
-        </li>
+        <a class="btn-cliente" href="http://127.0.0.1:5500/Front/index.html">
+            Vista cliente
+        </a>
+        <form id="form-logout" method="POST" action="/login/destroy">
+            <input type="submit" value="Cerrar sesión">
+        </form>
+    </div>
 
-        <li class="enlace">
-            <a href="/dashboard/eliminar">
-                <span>ELIMINAR</span>
-            </a>
-        </li>
-    </ul>
-
-    <form id="form-logout" method="POST" action="/login/destroy">
-        <input type="submit" value="Cerrar sesión">
-    </form>
 </header>

@@ -23,6 +23,7 @@ formulario.addEventListener("submit", async (evento) => {
             <div class="card-producto">
                 <img src="${data.payload.imagen}">
                 <h4>${data.payload.nombre}</h4>
+                <p>Categoria: ${data.payload.categoria}</p>
                 <p>ID: ${data.payload.id}</p>
                 <p>$${data.payload.precio}</p>
             </div>

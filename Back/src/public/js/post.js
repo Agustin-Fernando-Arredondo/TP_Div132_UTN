@@ -36,7 +36,6 @@ formularioProducto.addEventListener("submit", async (evento) =>
 
     catch (error)
     {
-        console.log(body);
         contenedorProductos.innerHTML = `<p>Error en la petición</p>`;
     }
 });
