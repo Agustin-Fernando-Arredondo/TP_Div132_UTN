@@ -72,6 +72,9 @@ formulario.addEventListener("submit", async (evento) =>
             const formData = new FormData(evento.target);
             const body = Object.fromEntries(formData);
 
+            console.log("🟢 FRONT - BODY QUE SE ENVÍA:", body);
+            console.log("🟢 FRONT - ID:", id);
+
             const response = await fetch(`/api/products/${id}`, 
             {
                 method: "PUT",
@@ -79,7 +82,11 @@ formulario.addEventListener("submit", async (evento) =>
                 body: JSON.stringify(body)
             });
 
-            console.log(response);
+            console.log("🟡 FRONT - STATUS:", response.status);
+
+            const data = await response.json().catch(() => null);
+            console.log("🟡 FRONT - RESPUESTA BACK:", data);
+
 
             if (!response.ok) 
             {

@@ -1,11 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () =>
+{
 
     const nombre = localStorage.getItem("nombre");
     const saludo = document.getElementById("saludo");
 
-    if (nombre) {
+    if (nombre) 
+    {
         saludo.textContent = `Bienvenido, ${nombre}! 👋`;
-    } else {
+    } 
+    
+    else 
+    {
         saludo.textContent = "Bienvenido!";
     }
     

@@ -91,14 +91,15 @@ const insertNewProduct = async (nombre, imagen, categoria, precio) =>
     return [rows, null];
 };
 
-const updateProduct = async (id, nombre, imagen, categoria, precio) => 
+const updateProduct = async (id, nombre, imagen, categoria, precio, activo) => 
 {
     const rows = await Producto.update(
         {
             nombre,
             imagen,
             categoria,
-            precio
+            precio,
+            activo
         },
         {
             where: { id }

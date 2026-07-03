@@ -71,16 +71,12 @@ const modifyProduct = async (req, res) =>
     try
     {
         const id = req.id;
-        const { nombre, imagen, categoria, precio} = req.body;
+        
+        const { nombre, imagen, categoria, precio, activo} = req.body;
 
-        if(!nombre || !imagen || !categoria || !precio) 
-        {
-            return res.status(400).json({message : "Todos los campos del formulario deben estar llenos"});
-        }
+        const [rows] = await productModels.updateProduct(id, nombre, imagen, categoria, precio, activo);
 
-        const [rows] = await productModels.updateProduct(id, nombre, imagen, categoria, precio);
-
-        if (rows[0] === 0) //Funciona igual a mysql
+        if (rows === 0) //Funciona igual a mysql
         {
             return res.status(404).json({message: `No se encontró ningun producto de id ${id} o los campos coinciden`})
         }

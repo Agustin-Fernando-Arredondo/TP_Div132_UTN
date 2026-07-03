@@ -1,3 +1,4 @@
+console.log("carrito.js cargado");
 const contenedor = document.getElementById("carrito");
 
 const totalSpan = document.getElementById("total");
@@ -65,7 +66,9 @@ function guardar() {
     renderCarrito();
 }
 
-async function confirmarCompra() {
+async function confirmarCompra()
+{
+
     if (carrito.length === 0) {
         alert("Carrito vacío");
         return;
@@ -79,26 +82,35 @@ async function confirmarCompra() {
 
     const venta = 
         {
-        cliente: nombre,
+        nombre_usuario: nombre,
+        precio_total: totalSpan.textContent,
         productos: carrito.map(producto => ({
             id: producto.id,
             cantidad: producto.cantidad
         }))
     };
 
-    try {
-        await fetch("http://localhost:3000/api/ventas", {
+
+    try 
+    {
+        await fetch("http://localhost:3000/api/sales", 
+        {
             method: "POST",
-            headers: {
+            headers: 
+            {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(venta)
         });
 
+
         window.location.href = "ticket.html";
-    } catch (error) {
+    } 
+    catch (error) {
         console.error("Error en compra:", error);
     }
 }
+
+document.getElementById("btn-finalizar").addEventListener("click", confirmarCompra);
 
 renderCarrito();

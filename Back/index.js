@@ -6,7 +6,7 @@ import environments from "./src/api/config/environments.js";
 
 import { join, __dirname } from "./src/api/utils/index.js";
 
-import { authRoutes, productRoutes, viewRoutes, userRoutes } from "./src/api/routes/index.js";
+import { authRoutes, productRoutes, viewRoutes, userRoutes, saleRoutes } from "./src/api/routes/index.js";
 
 const {port, session_key} = environments;
 
@@ -32,6 +32,7 @@ app.use("/api/products", productRoutes);
 app.use("/dashboard", viewRoutes);
 app.use("/login", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/sales", saleRoutes);
 
 app.listen(port, () =>
 {
