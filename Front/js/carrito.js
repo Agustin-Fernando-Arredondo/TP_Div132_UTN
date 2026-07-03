@@ -1,4 +1,3 @@
-console.log("carrito.js cargado");
 const contenedor = document.getElementById("carrito");
 
 const totalSpan = document.getElementById("total");
